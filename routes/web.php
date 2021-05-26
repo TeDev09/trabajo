@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/validar', 'PageControllerX@validacion_u')->name('validante_u');
 
 Route::get('/verificate', 'PageControllerX@verificar')->name('verificar');
@@ -31,6 +30,10 @@ Route::get('/admin', 'PageControllerX@admin')->name('admin');
 Route::post('/admin', 'PageControllerX@admin_verify')->name('admin.form');
 
 Route::get('/pagos/{idusu?}', 'PageControllerX@pagos')->name('pagos');
+Route::get('/pdf/{idusu?}', 'PageControllerX@pdf')->name('pdf');
+Route::get('/excel/{idusu?}', 'PageControllerX@excel')->name('excel');
+Route::get('/pago/{idusu?}', 'PageControllerX@excelpago')->name('excelpago');
+
 
 
 Route::get('/logueate', 'PageControllerX@login')->name('login');

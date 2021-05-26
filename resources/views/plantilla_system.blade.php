@@ -8,7 +8,7 @@
 <style>
 
 </style>
-<title>sitio web</title>
+<title>Sitio web</title>
 </head>
 
 <body>

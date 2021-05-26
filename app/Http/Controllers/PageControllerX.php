@@ -14,47 +14,62 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
-    public function pagos($idusu=''){
+    public function excelpago($id = '')
+    {
+        return view('sitio.excelpago', compact('id'));
+    }
+    public function excel($id = '')
+    {
+        return view('sitio.excel', compact('id'));
+    }
+    public function pdf($idusu = '')
+    {
+        return view('sitio.pdf', compact('idusu'));
+    }
+
+    public function pagos($idusu = '')
+    {
         return view('sitio.pagos', compact('idusu'));
     }
-    public function valOUT(Request $request){
+    public function valOUT(Request $request)
+    {
         $enviarfecha = $request->get('enviar');
-        if (isset($enviarfecha)){ 
+        if (isset($enviarfecha)) {
             $datetime = $request->get('datetime');
             $valID = $request->get('idusu');
-        if (!empty($valID) && !empty($datetime)) {
+            if (!empty($valID) && !empty($datetime)) {
 
-            $notaupdate = Usuario::findOrFail($valID);
-            $notaupdate->hora_salida = $request->datetime;
+                $notaupdate = Usuario::findOrFail($valID);
+                $notaupdate->hora_salida = $request->datetime;
 
-            $notaupdate->save();
-            return view('sitio.logout_user');
+                $notaupdate->save();
+                return view('sitio.logout_user');
+            } else {
+                echo 'Error datos';
+            }
         } else {
-            echo 'Error datos';
+            echo 'Datos no enviados';
         }
-    }else{ 
-        echo 'Datos no enviados';
-    }
     }
     public function valHOUR(Request $request, $idusu)
     {
         $enviarfecha = $request->get('enviarfecha');
-        if (isset($enviarfecha)){ 
+        if (isset($enviarfecha)) {
             $datetime = $request->get('datetime');
             $valID = $request->get('idusu');
-        if (!empty($valID) && !empty($datetime)) {
+            if (!empty($valID) && !empty($datetime)) {
 
-            $notaupdate = Usuario::findOrFail($valID);
-            $notaupdate->hora_entrada = $request->datetime;
+                $notaupdate = Usuario::findOrFail($valID);
+                $notaupdate->hora_entrada = $request->datetime;
 
-            $notaupdate->save();
-            return view('sitio.comprobante3');
+                $notaupdate->save();
+                return view('sitio.comprobante3');
+            } else {
+                echo 'Error datos';
+            }
         } else {
-            echo 'Error datos';
+            echo 'Datos no enviados';
         }
-    }else{ 
-        echo 'Datos no enviados';
-    }
     }
 
     public function valID(Request $request)

@@ -1,4 +1,5 @@
 <?php
+#CONEXION A BASE DE DATOS
 $host = 'localhost';
 $user = 'root';
 $pass = '';
@@ -13,6 +14,9 @@ alert("conexion exitosa");
 alert("ERROR al conectar");
 </script>';
 }
+
+#CONEXION A BASE DE DATOS
+
 session_start();
 ?>
 <html lang="es">
@@ -77,6 +81,7 @@ body {
                             //echo 'buscaste la ID: '. $id. ' ';
                             ?>
                             <h5 class="center">Datos de pago de ID: <?php echo $id; ?></h5>
+                            <div class="center"><a class="btn-small green" href="{{ route('excelpago', $id) }}">Descargar excel</a></div>
                             <?php
                             $comprobar = "SELECT * FROM usuarios WHERE id ='$id'";
                             $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query
@@ -112,11 +117,11 @@ body {
                                 <h5 class="center">Trabajadas:</h5>
                                 <div class="divi"></div>
                                 <br>
-                                <h6 class="center"><b> <?php if(empty($resta)){ echo "Error al procesar." ; }else{ echo $resta.' Horas en total'; } ?> </b></h6>
+                                <h6 class="center"><b> <?php if(empty($resta)){ echo "<div><p style=\"color:red;\">Error al procesar.</p></div>" ; }else{ echo $resta.' <div><p style=\"color:yellow;\">Horas en trabajadas.</p></div>'; } ?> </b></h6>
                                 <h5 class="center">Pago:</h5>
                                 <div class="divi"></div>
-                                <br>
-                                <h6 class="center"><b> <?php if(empty($total)){ echo "Error al procesar." ; }else{ echo '$'.$total.' A pagar'; } ?> </b></h6>
+                                <br> 
+                                <h6 class="center"><b> <?php if(empty($total)){ echo "<div><p style=\"color:red;\">Error al procesar.</p></div>" ; }else{ echo '$'.$total.' <div><p style=\"color:green;\">A pagar.</p></div>'; } ?> </b></h6>
                                 </div>
                             </div>
                             <div>
@@ -135,7 +140,8 @@ body {
                             if (isset($idusu) && !empty($idusu)) {
                         ?>
                             <h3 class="center">Usuario ID: <?php echo $idusu ?>, tus horas de entrada/salida son:</h3>
-                            <h6 class="center">Un administrador te notificará de tu paga con forme a estos datos. Si no tienes hora de salida debes volver a la página inicial y cerrar sesión (Al cerrar sesión se toma tu hora de salida automáticamente).</h6>
+                            <h6 class="center">Un administrador te notificará de tu paga con forme a estos datos. Si no tienes hora de salida debes volver a la página inicial y cerrar sesión (Al cerrar sesión se toma tu hora de salida automáticamente). Puedes descargar tu comprobante aquí:</h6>
+                            <div class="center"><a class="btn-small green" href="{{ route('pdf', $idusu) }}">Descargar</a></div>
                         <?php
                         $comprobar = "SELECT * FROM usuarios WHERE id ='$idusu'";
                         $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query

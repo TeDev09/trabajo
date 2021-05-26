@@ -64,7 +64,7 @@ session_start();
         }
     }
 </style>
-<title>sitio Web</title>
+<title>Sitio web</title>
 </head>
 
 <body>

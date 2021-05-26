@@ -70,6 +70,7 @@
                     <th>Actualizado el</th>
                     <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
                     <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
+                    <th data-aos="fade-up" data-aos-duration="1000">Descargar reporte</th>
                 </tr>
             </thead>
 
@@ -88,8 +89,13 @@
                             </button>
                         </form>
                     </td>
-                    <td>
+                    <td><?php
+                    $id=$nota->id;
+                    ?>
                         <form><a href=" {{route('notas.editar',$nota)}} " class="btn yellow"><i class="material-icons">create</i></a></form>
+                    </td>
+                    <td>
+                    <div class="center"><a class="btn-small green" href="{{ route('excel', $id) }}">Descargar excel</a></div>
                     </td>
                 </tr>
             </tbody>
