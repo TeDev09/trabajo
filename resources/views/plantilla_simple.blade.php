@@ -111,7 +111,7 @@ session_start();
                     }
                     ?>
                     @else
-                    <a href="{{ route('login') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Entrar</a>
+                    <a href="{{ route('verificar') }}" data-aos="fade-down" data-aos-duration="300" data-aos-delay="500">Entrar</a>
                     <div class="divider"></div>
                     @endif
                     <div class="divider"></div>
@@ -146,7 +146,7 @@ session_start();
                             <div class="col s12">
                                 <div style="background-color: #b1b1b1" class="col s12">
                                     <?php
-                                    echo $_SESSION['admin'] . ' <---Indicador de rol';
+                                    echo $_SESSION['admin'] . '|-|';
                                     ?>
                                     <a href="{{ route('cierre') }}">Cerrar sesión</a>
                                     @yield('cuadro')
@@ -219,11 +219,11 @@ session_start();
                                 <div>
                                     <p>
                                     <div class="center">
-                                        <h3 class="center">DEBES INICIAR SESIÓN PARA VISUALIZAR ESTE CONTENIDO</h3>
+                                        <h4 class="center">DEBES INICIAR SESIÓN PARA VISUALIZAR ESTE CONTENIDO</h4>
                                         <div class="divider"></div>
-                                        <h4 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">LOGUEARSE</a></h4>
-                                        <h4 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h4>
-                                        <h4 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h4>
+                                        <h5 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">LOGUEARSE</a></h5>
+                                        <h5 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h5>
+                                        <h5 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h5>
                                     </div>
                                 </div>
                                 </p>

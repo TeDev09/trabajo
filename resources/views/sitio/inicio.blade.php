@@ -11,6 +11,9 @@ body {
 <br>
 <div style="background-color: #b1b1b1" class="col s12">
     <h3 class="center">Gestión de empleados</h3>
+    <div class="center"><a class="btn green" href="{{ route('allusers') }}">Descargar excel</a></div>
+
+
 </div>
 <br><br>
 <div class="contenido section">

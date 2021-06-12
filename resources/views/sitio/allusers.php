@@ -1,11 +1,10 @@
 <?php
 session_start();
 if (isset($_SESSION['admin']) or isset($_SESSION['sup'])) {
-    if (isset($id) && !empty($id)) {
         require 'excel_agregado.php';
-        $comprobar = "SELECT * FROM usuarios WHERE id ='$id'";
+        $comprobar = "SELECT * FROM usuarios";
 
-        $name = $id . rand(100, 1000);
+        $name = 'allusers'. rand(100, 1000);
         header("Content-Type: application/vnd.ms-excel; charset=iso-8859-1");
         header("Content-Disposition: attachment; filename=Reporte_$name.xls");
 ?>
@@ -27,7 +26,7 @@ if (isset($_SESSION['admin']) or isset($_SESSION['sup'])) {
                 <h3>Datos de pago</h3>
             </caption>
             <tr>
-                <th style="text-align: center; color: yellowgreen;">ID</th>
+                <th style="text-align: center; color: red;">ID</th>
                 <th style="text-align: center;">HORA DE ENTRADA:</th>
                 <th style="text-align: center;">HORA DE SALIDA:</th>
                 <th style="text-align: center;">PAGO POR HORA:</th>
@@ -53,21 +52,19 @@ if (isset($_SESSION['admin']) or isset($_SESSION['sup'])) {
                 $total = $resta * $pago_hora;
             ?>
                 <tr>
-                    <td style="text-align: center; color: yellowgreen;"><?php echo $registro2['id']; ?></td>
+                    <td style="text-align: center; color: red;"><?php echo $registro2['id']; ?></td>
                     <td style="text-align: center;"><?php echo $registro2['hora_salida']; ?></td>
                     <td style="text-align: center;"><?php echo $registro2['hora_entrada']; ?></td>
-                    <td style="text-align: center;color: yellow"><?php echo '$' . $registro2['pago']; ?></td>
-                    <td style="text-align: center; color: yellowgreen;"><?php echo $resta . ' horas'; ?></td>
+                    <td style="text-align: center;color: orange"><?php echo '$' . $registro2['pago']; ?></td>
+                    <td style="text-align: center; color: DarkOrange;"><?php echo $resta . ' horas'; ?></td>
                     <td style="text-align: center; color: green;"><?php echo '$' . $total; ?></td>
                 </tr>
-        </table>
     <?php                                          }   ?>
+        </table>
     <br>
 <?php
 
-    } else {
-        echo "No se ha seleccionado ningún ID";
-    }
+    
 } else {
     echo 'debes iniciar sesión';
 }

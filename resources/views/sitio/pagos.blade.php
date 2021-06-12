@@ -86,7 +86,7 @@ body {
                             $comprobar = "SELECT * FROM usuarios WHERE id ='$id'";
                             $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query
                                 while ($registro2 = mysqli_fetch_array($resultado1)) {
-                                    $hora_salida = $registro2['hora_salida'];
+                                $hora_salida = $registro2['hora_salida'];
                                     $hora_entrada = $registro2['hora_entrada'];
                                     $pago_hora = $registro2['pago'];
                                 }

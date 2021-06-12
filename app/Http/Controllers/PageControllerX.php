@@ -14,6 +14,9 @@ use App\Providers\RouteServiceProvider;
 
 class PageControllerX extends Controller
 {
+    public function allusers(){
+        return view('sitio.allusers');
+    }
     public function excelpago($id = '')
     {
         return view('sitio.excelpago', compact('id'));

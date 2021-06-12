@@ -33,6 +33,7 @@ Route::get('/pagos/{idusu?}', 'PageControllerX@pagos')->name('pagos');
 Route::get('/pdf/{idusu?}', 'PageControllerX@pdf')->name('pdf');
 Route::get('/excel/{idusu?}', 'PageControllerX@excel')->name('excel');
 Route::get('/pago/{idusu?}', 'PageControllerX@excelpago')->name('excelpago');
+Route::get('/allusers', 'PageControllerX@allusers')->name('allusers');
 
 
 

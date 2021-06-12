@@ -27,6 +27,52 @@
 <div class="divider"></div>
 <br>
 <div class="col s12">
+<div class="cuadro">
+        <h4 class="center">Acciones</h4>
+        <div class="divi"></div>
+        <table class="highlight" style=" color: black;" data-aos="fade-right">
+            <thead>
+                <tr>
+                    <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
+                    <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
+                    <th data-aos="fade-up" data-aos-duration="1000">Descargar reporte</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                <?php
+                    $id=$nota->id;
+                    ?>
+                    
+                    <td>
+                        <form method="POST" action="{{ route('notas.eliminar', $nota) }}">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn red" type="submit" name="action">
+                                <i class="material-icons">delete_forever</i>
+                            </button>
+                        </form>
+                    </td>
+
+
+                    <td>
+                        <form><a href=" {{route('notas.editar',$nota)}} " class="btn yellow"><i class="material-icons">create</i></a></form>
+                    </td>
+                    <td>
+                    <div class=""><a class="btn green" href="{{ route('excel', $id) }}">Descargar excel</a></div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+
+    <br>
+
+
     <div class="cuadro">
         <h4 class="center">Datos personales</h4>
         <div class="divi"></div>
@@ -65,37 +111,64 @@
             <thead>
                 <tr>
                     <th>Proyecto</th>
-                    <th>Pago por hora</th>
                     <th>Creado el</th>
                     <th>Actualizado el</th>
-                    <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
-                    <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
-                    <th data-aos="fade-up" data-aos-duration="1000">Descargar reporte</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
                     <td>{{$nota->trabajo}}</td>
-                    <td>{{$nota->pago}}</td>
                     <td>{{$nota->created_at->format('d M Y H:H ')}}</td>
                     <td>{{$nota->updated_at->format('d M Y H:H')}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+
+    <br>
+
+    <div class="cuadro">
+        <h4 class="center">Datos de pago</h4>
+        <div class="divi"></div>
+        <table class="highlight" style=" color: black;" data-aos="fade-right">
+            <thead>
+                <tr>
+                    <th>Pago por hora</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Paga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>${{$nota->pago}}</td>
+                    <td>{{$nota->hora_entrada}}</td>
+                    <td>{{$nota->hora_salida}}</td>
                     <td>
-                        <form method="POST" action="{{ route('notas.eliminar', $nota) }}">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn red" type="submit" name="action">
-                                <i class="material-icons">delete_forever</i>
-                            </button>
-                        </form>
-                    </td>
-                    <td><?php
-                    $id=$nota->id;
-                    ?>
-                        <form><a href=" {{route('notas.editar',$nota)}} " class="btn yellow"><i class="material-icons">create</i></a></form>
-                    </td>
-                    <td>
-                    <div class="center"><a class="btn-small green" href="{{ route('excel', $id) }}">Descargar excel</a></div>
+                    
+    <?php
+    $hora_salida=$nota->hora_salida;
+    $hora_entrada=$nota->hora_entrada;
+    $pago_hora=$nota->pago;
+
+    $hora_salida1 = $hora_salida[11];
+    $hora_salida2 = $hora_salida[12];
+    $total_salida = $hora_salida1.$hora_salida2;
+
+    $hora_entrada1 = $hora_entrada[11];
+    $hora_entrada2 = $hora_entrada[12];
+    $total_entrada = $hora_entrada1.$hora_entrada2;
+
+    $resta= $total_salida - $total_entrada;
+
+    $total = $resta * $pago_hora;
+    echo '$'.$total;
+    ?>
+
                     </td>
                 </tr>
             </tbody>
