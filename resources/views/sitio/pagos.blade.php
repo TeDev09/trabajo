@@ -82,6 +82,7 @@ body {
                             ?>
                             <h5 class="center">Datos de pago de ID: <?php echo $id; ?></h5>
                             <div class="center"><a class="btn-small green" href="{{ route('excelpago', $id) }}">Descargar excel</a></div>
+                            <div class="center"><small><strong>(Solo datos de pago)</strong></small></div>
                             <?php
                             $comprobar = "SELECT * FROM usuarios WHERE id ='$id'";
                             $resultado1 = mysqli_query($conexion, $comprobar) or die('ERROR'); //se realiza el query
@@ -117,11 +118,11 @@ body {
                                 <h5 class="center">Trabajadas:</h5>
                                 <div class="divi"></div>
                                 <br>
-                                <h6 class="center"><b> <?php if(empty($resta)){ echo "<div><p style=\"color:red;\">Error al procesar.</p></div>" ; }else{ echo $resta.' <div><p style=\"color:yellow;\">Horas en trabajadas.</p></div>'; } ?> </b></h6>
+                                <h6 class="center"><b> <?php if(empty($resta)){ echo "<div><p style=\"color:red;\">Tiempo insuficiente.</p></div>" ; }else{ echo $resta.' <div><p style=\"color:yellow;\">Horas en trabajadas.</p></div>'; } ?> </b></h6>
                                 <h5 class="center">Pago:</h5>
                                 <div class="divi"></div>
                                 <br> 
-                                <h6 class="center"><b> <?php if(empty($total)){ echo "<div><p style=\"color:red;\">Error al procesar.</p></div>" ; }else{ echo '$'.$total.' <div><p style=\"color:green;\">A pagar.</p></div>'; } ?> </b></h6>
+                                <h6 class="center"><b> <?php if(empty($total)){ echo "<div><p style=\"color:red;\">Tiempo insuficiente.</p></div>" ; }else{ echo '$'.$total.' <div><p style=\"color:green;\">A pagar.</p></div>'; } ?> </b></h6>
                                 </div>
                             </div>
                             <div>

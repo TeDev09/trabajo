@@ -163,7 +163,7 @@ session_start();
                             <div class="col s12">
                                 <div style="background-color: #b1b1b1" class="col s12">
                                     <?php
-                                    echo $_SESSION['sup'] . ' <---Indicador de rol';
+                                    echo $_SESSION['sup'] . '|-|';
                                     ?>
                                     <a href="{{ route('cierre') }}">Cerrar sesión</a>
                                     @yield('cuadro')
@@ -219,11 +219,11 @@ session_start();
                                 <div>
                                     <p>
                                     <div class="center">
-                                        <h4 class="center">DEBES INICIAR SESIÓN PARA VISUALIZAR ESTE CONTENIDO</h4>
+                                        <h4 class="center">Debes iniciar sesión para visualizar este contenido.</h4>
                                         <div class="divider"></div>
-                                        <h5 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">LOGUEARSE</a></h5>
-                                        <h5 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Admin</a></h5>
-                                        <h5 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">CREAR CUENTA</a></h5>
+                                        <h5 style="display: inline-block;" class="left"><a href="{{ route('verificar') }}">Iniciar sesión</a></h5>
+                                        <h5 style="display: inline-block;" class="center"><a href="{{ route('admin') }}">Administrar</a></h5>
+                                        <h5 style="display: inline-block;" class="right"><a href="{{ route('notas') }}">Crear cuenta</a></h5>
                                     </div>
                                 </div>
                                 </p>

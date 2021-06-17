@@ -22,8 +22,8 @@
     }
 </style>
 <div class="divider"></div>
-<h1 class="center">Detalle del usuario</h1>
-<h2 class="center">ID {{$nota->id}}</h2>
+<h3 class="center">Detalle del usuario</h3>
+<h5 class="center"><strong>ID {{$nota->id}}</strong></h5>
 <div class="divider"></div>
 <br>
 <div class="col s12">
@@ -35,7 +35,7 @@
                 <tr>
                     <th data-aos="fade-up" data-aos-duration="1000">Borrar</th>
                     <th data-aos="fade-up" data-aos-duration="1000">Editar</th>
-                    <th data-aos="fade-up" data-aos-duration="1000">Descargar reporte</th>
+                    <th data-aos="fade-up" data-aos-duration="1000">Descargar reporte individual(solo este usuario).</th>
                 </tr>
             </thead>
 

@@ -33,9 +33,11 @@
     ?>
             <div class="section container">
                 <div class="row">
-                    <?php
-                    echo $_SESSION['admin'] . ' <---Indicador de rol';
-                    ?>
+                    <div class="center">
+                        <div class="chip">
+                        Tu rol: Administrador.
+                        </div>
+                    </div>
                     @yield('contenido')
 
                 </div>
@@ -46,9 +48,11 @@
         ?>
             <div class="section container">
                 <div class="row">
-                    <?php
-                    echo $_SESSION['admin'] . ' <---Indicador de rol';
-                    ?>
+                    <div class="center">
+                        <div class="chip">
+                        Tu rol: Supervisor.
+                        </div>
+                    </div>
                     @yield('contenido')
 
                 </div>
@@ -58,7 +62,7 @@
         if (isset($_SESSION['usuario'])) {
         ?>
 
-            <h1 class="center">No tienes los permisos para ver este contenido.</h1>
+            <h4 class="center">No tienes los permisos para ver este contenido.</h4>
 
         <?php
         }

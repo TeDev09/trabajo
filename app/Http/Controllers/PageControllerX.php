@@ -132,7 +132,7 @@ class PageControllerX extends Controller
             if (isset($passAdm)) {
                 $query2 = Admin::where('password', '=', $passAdm)->get();
                 if ($query2->count() != 0) {
-                    $_SESSION["admin"] = "Logueado como ADMINISTRADOR ";
+                    $_SESSION["admin"] = "Tu rol: ADMINISTRADOR ";
                     $ADMINISTRADOR = $_SESSION['admin'];
                     return view('sitio.validacion', compact('ADMINISTRADOR'));
                 } else {
@@ -142,7 +142,7 @@ class PageControllerX extends Controller
             if (isset($passSup)) {
                 $query2 = Sup::where('password', '=', $passSup)->get();
                 if ($query2->count() != 0) {
-                    $_SESSION["sup"] = "Logueado como SUPERVISOR ";
+                    $_SESSION["sup"] = "Tu rol: SUPERVISOR ";
                     $SUPERVISOR = $_SESSION['sup'];
                     return view('sitio.validacion', compact('SUPERVISOR'));
                 } else {
